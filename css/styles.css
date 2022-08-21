@@ -189,10 +189,13 @@ a.custom-card:hover {
   color: orange;
 }
 
+/*Estilo del login*/
+
 .form{
   align-items: center;
   justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
+  display: flex;
  }
  
  .formulario, h1, .error{
@@ -202,7 +205,7 @@ a.custom-card:hover {
  }
 
  .img{
-    margin-left: 30rem;
+    margin: 60px auto;
     width: 400px;
     display: block;
   }
