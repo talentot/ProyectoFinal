@@ -1,3 +1,26 @@
+//Función que se ejecuta una vez que se haya lanzado el evento de
+//el documento que se encuentra cargado, es decir, se encuentran todos los
+//elementos HTML presentes.
+
+document.addEventListener("DOMContentLoaded", function(){
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok"){
+            //console.log (resultObj.data)
+                currentProductsArray = resultObj.data
+                showProductsList()
+            //sortAndShowProducts(ORDER_ASC_BY_NAME, resultObj.data);
+        } /*else{
+            alert("error" + resultObj.data)
+        }*/
+
+    });
+
+});
+
+//PRODUCTS_URL = "https://japceibal.github.io/emercado-api/cats_products/";
+//pinte en la consola la URL y me daba un error, y al agregarle el 101.json
+//me devuelve el objeto con el que voy a trabajar
+
 
 let currentProductsArray = [];
 
@@ -35,25 +58,3 @@ function showProductsList(){
     }
 
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//el documento que se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-
-document.addEventListener("DOMContentLoaded", function(){
-    getJSONData(PRODUCTS_URL).then(function(resultObj){
-        if (resultObj.status === "ok"){
-            //console.log (resultObj.data)
-                currentProductsArray = resultObj.data
-                showProductsList()
-            //sortAndShowProducts(ORDER_ASC_BY_NAME, resultObj.data);
-        } /*else{
-            alert("error" + resultObj.data)
-        }*/
-
-    });
-
-});
-
-//PRODUCTS_URL = "https://japceibal.github.io/emercado-api/cats_products/";
-//pinte en la consola la URL y me daba un error, y al agregarle el 101.json
-//me devuelve el objeto con el que voy a trabajar
