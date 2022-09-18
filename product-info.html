@@ -10,6 +10,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  
 </head>
 
 <body>
@@ -37,11 +38,45 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    
+    <div id="nombre"></div>
+
+    <div class="margen">
+
+    <div id="product-info"></div>
+
+    <!--Se agregan los controles gráficos 
+      necesarios para poder realizar 
+      un nuevo comentario con su puntuación -->
+      <div>
+        <br>
+        <h4>Comentarios:</h4>
       </div>
-    </div>
+
+      <div id="productComment" ></div>
+
+      <div>
+      <h4>Deje su comentario:</h4>
+      <textarea cols="30" rows="4"></textarea>
+      </div>
+
+      <div>
+        <br>
+        <select class="btn dropdown-toggle">
+          <option  style="visibility:hidden"> Puntuación </option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+
+      <br>
+
+    <button class="btn btn-primary" type="button">Enviar</button>
+  </div>
+    <!---->
   </main>
   <footer class="text-muted">
     <div class="container">

@@ -215,9 +215,19 @@ a.custom-card:hover {
    margin: auto;
    margin-top: 10px;
  }
+
  .formulario button{
   margin-top: 15px;
-   background-color:#026cc4;
-   color: white;
-   border-color: #53C0FB;
  }
+ /*Fin*/
+
+ /*Estilo de img del producto especifico*/
+.contenedor_img{
+  display: flex;
+  width: 50rem;
+}
+/*Fin*/
+
+.margen{
+  margin-left: 2rem;
+}
