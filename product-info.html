@@ -33,13 +33,25 @@
           </li>
           <li class="nav-item">
           </li>
+          <!--Menu desplegable  -->
+        <div class="btn-group">
+          <button id="nav-User" type="button" class="btn btn-secondary btn-sm dropdown-toggle"  data-bs-toggle="dropdown">
+          </button>
+            <ul class="dropdown-menu">
+             <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+             <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+             <li><a class="dropdown-item" href="index.html">Cerrar sesión</a></li>
+            </ul>
+        </div>
+          <!--Fin-->
         </ul>
       </div>
     </div>
   </nav>
   <main>
+
+    <h1 id="nombre" class="text-center mt-4 mb-5 title-bg-gradient"></h1>
     
-    <div id="nombre"></div>
 
     <div class="margen">
 
@@ -53,7 +65,7 @@
         <h4>Comentarios:</h4>
       </div>
 
-      <div id="productComment" ></div>
+      <div id="productComment" class="commentList"></div>
 
       <div>
       <h4>Deje su comentario:</h4>
@@ -75,6 +87,16 @@
       <br>
 
     <button class="btn btn-primary" type="button">Enviar</button>
+
+    <!---->
+      <hr>
+    <!--Se agregan los productos relacionados entrega 4-->
+    <div>
+      <h4 style="text-align: center">Productos relacionados</h4>
+      <br>
+     <div class="relatedProd" id="relatedProductsImg"></div>
+    </div>
+
   </div>
     <!---->
   </main>

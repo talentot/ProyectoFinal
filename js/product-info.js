@@ -1,19 +1,16 @@
 var comentarios = [];
 var producto = [];
+var related = [];
 
 
 /*Visualizacion de la infromacion de cada producto*/
 function showProductsInfo() {
 
-    document.getElementById("nombre").innerHTML = `
-        <h3 class="text-center mt-4 mb-5">${producto.name}</h3>
-        `;
+    document.getElementById("nombre").innerHTML = producto.name;
 
     let prodImgsHTML = imagesProduct(); //Mostrar imagenes
 
-    let htmlContentToAppend = "";
-
-    htmlContentToAppend += `
+    let htmlContentToAppend = `
         <div class="row">
 
             <hr>
@@ -61,10 +58,12 @@ function loadScore(score){
 
     for(let i=0; i < score; i++){
         scoreHTML += `<span class="fa fa-star checked"></span>`
+        
     }
 
     let emptyStars = maxScore - score;
     
+
     for(let i=0; i < emptyStars; i++){
         scoreHTML += `<span class="fa fa-star"></span>`
     }
@@ -78,13 +77,14 @@ function Comment(id, user, dateTime, score, description){
     let scoreHTML = loadScore(score);
 
     return `
-        <li id="idComment_`+id+`" class="row comment-content">
-        <div>
-        <h5>`+user+` - `+dateTime+`</h5>
-        </div>
-        <div id="score">${scoreHTML}</div>
-        <p>`+description+`</p>
-        </li>`;
+        <div id="idComment_`+id+`" class="row comment">
+            <div>
+                <h5>`+user+` - `+dateTime+`</h5>
+            </div>
+            <div id="score">${scoreHTML}</div>
+            
+            <p>`+description+`</p>
+        </div>`;
 }
 
 function commentProduct(){
@@ -97,17 +97,56 @@ function commentProduct(){
 }
 /*Fin*/
 
+/*Funcion para mostrar productos relacionados*/
+function relatedProdID(id){
+    localStorage.setItem("prodID", id);
+    window.location = "product-info.html";
+}
+
+function showRelatedProducts(){
+
+    let htmlContentToAppend = "";
+
+    for (let i = 0; i < related.length; i++) {
+        let relatedProd = related[i];
+
+    htmlContentToAppend += `
+
+        <div onclick="relatedProdID(${relatedProd.id})" class="group-item-action cursor-active relProd">
+            <div>
+                <img src="${relatedProd.image}" class="img-thumbnail">
+            </div>
+
+            <h6 class="mb-1">${relatedProd.name}</h6>
+
+            <p> ${relatedProd.currency} ${relatedProd.cost}</p>
+        </div>`
+    }
+document.getElementById ("relatedProductsImg").innerHTML = htmlContentToAppend;
+    }
+    
+ /*Fin*/
+    
+
 document.addEventListener("DOMContentLoaded", function(){
-    var id = localStorage.prodID;
-    if(id){
-        getJSONData(PRODUCT_INFO_URL + id + ".json").then(function(resultObj){
+    var catId = localStorage.catID;
+    var prodId = localStorage.prodID;
+    
+    if(prodId && catId){
+        getJSONData(PRODUCTS_URL + catId + ".json").then(function(resultObj){
+        if (resultObj.status === "ok"){ 
+            related = resultObj.data.products.filter(prod => prod.id != prodId) //expresion lambda
+            showRelatedProducts()
+        } 
+        })
+        getJSONData(PRODUCT_INFO_URL + prodId + ".json").then(function(resultObj){
             if (resultObj.status === "ok"){
                     producto = resultObj.data;
                     showProductsInfo();
             
             }
         })
-        getJSONData(PRODUCT_INFO_COMMENTS_URL + id + ".json").then(function(resultObj){
+        getJSONData(PRODUCT_INFO_COMMENTS_URL + prodId + ".json").then(function(resultObj){
             if (resultObj.status === "ok"){
                     comentarios = resultObj.data;
                     commentProduct();

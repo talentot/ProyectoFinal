@@ -29,9 +29,17 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link" id="nav-User" href="index.html" role="button" style="color: grey;">User</a>
-          </li>
+          <!--Menu desplegable -->
+        <div class="btn-group">
+          <button id="nav-User" type="button" class="btn btn-secondary btn-sm dropdown-toggle"  data-bs-toggle="dropdown">
+          </button>
+            <ul class="dropdown-menu">
+             <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+             <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+             <li><a class="dropdown-item" href="index.html">Cerrar sesión</a></li>
+            </ul>
+        </div>
+          <!--Fin-->
         </ul>
       </div>
     </div>

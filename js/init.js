@@ -39,3 +39,11 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  /*       ----------------------------------               */
+let User = localStorage.getItem("user-logged");
+document.getElementById('nav-User').innerHTML = User;
+/*       ----------------------------------               */
+});
