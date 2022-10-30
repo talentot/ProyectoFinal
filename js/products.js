@@ -35,7 +35,7 @@ function sortProducts(criteria, array){
 
     return result;
 }
-//Redireccion al escuchar el evento onclick hacia la iformacion de cada producto
+//Redireccion al escuchar el evento onclick hacia la iformacion de cada producto con el diferente id
 function setProdID(id){
     localStorage.setItem("prodID", id);
     window.location = "product-info.html";

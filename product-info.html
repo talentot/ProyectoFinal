@@ -40,7 +40,7 @@
             <ul class="dropdown-menu">
              <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-             <li><a class="dropdown-item" href="index.html">Cerrar sesión</a></li>
+             <li><a class="dropdown-item"  id="logout">Cerrar sesión</a></li>
             </ul>
         </div>
           <!--Fin-->
@@ -55,7 +55,26 @@
 
     <div class="margen">
 
+      <div class="container">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th>Descripcion</th>
+              <th></th>
+              <th></th>
+              <th>Costo</th>
+              <th>Vendidos</th>
+             
+            </tr>
+          </thead>
+        </table>
+      </div>
+
     <div id="product-info"></div>
+    <br>
 
     <!--Se agregan los controles gráficos 
       necesarios para poder realizar 
@@ -63,12 +82,14 @@
       <div>
         <br>
         <h4>Comentarios:</h4>
+        <br>
       </div>
 
       <div id="productComment" class="commentList"></div>
 
       <div>
       <h4>Deje su comentario:</h4>
+      <br>
       <textarea cols="30" rows="4"></textarea>
       </div>
 
@@ -82,11 +103,9 @@
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
+        <button class="btn btn-secondary" type="button" id="comentario">Enviar comentario</button>
       </div>
 
-      <br>
-
-    <button class="btn btn-primary" type="button">Enviar</button>
 
     <!---->
       <hr>
@@ -98,7 +117,7 @@
     </div>
 
   </div>
-    <!---->
+    <!--Fin-->
   </main>
   <footer class="text-muted">
     <div class="container">

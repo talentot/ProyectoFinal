@@ -32,26 +32,178 @@
           <li class="nav-item">
           </li>
           <!--Menu desplegable  -->
-        <div class="btn-group">
-          <button id="nav-User" type="button" class="btn btn-secondary btn-sm dropdown-toggle"  data-bs-toggle="dropdown">
-          </button>
+          <div class="btn-group">
+            <button id="nav-User" type="button" class="btn btn-secondary btn-sm dropdown-toggle"
+              data-bs-toggle="dropdown">
+            </button>
             <ul class="dropdown-menu">
-             <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
-             <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-             <li><a class="dropdown-item" href="index.html">Cerrar sesión</a></li>
+              <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+              <li><a class="dropdown-item"  id="logout">Cerrar sesión</a></li>
             </ul>
-        </div>
+          </div>
           <!--Fin-->
         </ul>
       </div>
     </div>
   </nav>
   <main>
-   <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+<!-- Alerta de compra exitosa -->
+    <div class="alert alert-success alert-dismissible fade" role="alert" id="alert-success">
+      <p id="alter-success-msg"></p>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div> 
+    <!-- Fin de la alerta -->
+
+    <!-- Entrega 5 controles graficos para el tipo de envio y muestra del carrito -->
+    <h1 class="title-bg-gradient text-center p-4">Carrito de compras</h1>
+
+    <div class="container">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Nombre</th>
+            <th>Costo</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+    <div class="container" id="cartBuy"></div>
+
+    <br>
+    <h4 class="container">Tipo de envío</h4>
+    <br>
+    <div class="container">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="flexCheckDefault" id="Premium" required>
+        <label> Premium 2 a 5 dias (15%)</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="flexCheckDefault" id="Express" required />
+        <label> Express 5 a 8 dias (7%)</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="flexCheckDefault" id="Standard" required />
+        <label> Standard 12 a 15 dias (5%)</label>
+      </div>
+      <!-- Entrega 6 costos  -->
+      <br>
+      <hr>
+      <h4 class="container">Costos</h4>
+      <br>
+
+      <ul class="list-group mb-3">
+        <li class=" list-group-item d-flex justify-content-between">
+          <div>
+            <h6 class="my-0">Subtotal</h6>
+            <small class="text-muted">Costo unitario del producto por cantidad</small>
+          </div>
+          <span class="text-muted" id="Cost"></span>
+        </li>
+
+        <li class="list-group-item d-flex justify-content-between ">
+          <div>
+            <h6 class="my-0">Costo de envío</h6>
+            <small class="text-muted">Según el tipo de envío</small>
+          </div>
+          <span class="text-muted" id="costEnvio"></span>
+        </li>
+
+        <li class="list-group-item d-flex justify-content-between">
+          <strong>Total</strong>
+          <strong id="total"></strong>
+        </li>
+      </ul>
+      <button class="btn btn-primary" type="button" data-bs-toggle="modal"
+        data-bs-target="#Modal">Comprar</button>
+    </div>
+    <!-- Fin de costos -->
+   
+    <!--Entrega 6 Modal -->
+
+    <div class="modal fade" data-backdrop="static" id="Modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+      
+          <div class="modal-header">
+            <h4 class="modal-title">Forma de Pago</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+            <form action="" id="formEnvio" class="needs-validation" novalidate>
+              
+              <div class="form-check-inline">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="transfBancaria" value="option1" />
+                  Transferencia Bancaria
+                </label>
+              </div>
+
+              <div class="form-check-inline">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="tarjCredito" value="option2"/>
+                  Tarjeta de Crédito
+                </label>
+              </div>
+             
+              <div id="FormaDePago"></div>
+
+              <br>
+
+              <div class="modal-header">
+                <h4 class="modal-title">Dirección de envío</h4>
+              </div>
+
+              <br>
+
+              <div class="col-md-9">
+                <label for="usr">Calle</label>
+                <input type="text" class="form-control"  required />
+                <div class="valid-feedback">Correcto</div>
+                <div class="invalid-feedback">Ingresar calle </div>
+              </div>
+              <br>
+              <div class="col-md-9">
+                <label for="tel">Esquina</label>
+                <input type="text" class="form-control" required />
+                <div class="valid-feedback">Correcto</div>
+                <div class="invalid-feedback">Ingresar esquina </div>
+              </div>
+              <br>
+              <div class="col-md-9">
+                <label for="usr">Número</label>
+                <input type="number" class="form-control" required />
+                <div class="valid-feedback">Correcto</div>
+                <div class="invalid-feedback">Ingresar número de puerta </div>
+              </div>
+
+              <br>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary"> Enviar compra </button>
+              </div>
+
+            </form>
+          </div>
+        </div>
       </div>
     </div>
+    </div>
+    </div>
+    <!-- Fin del Modal-->
+
   </main>
   <footer class="text-muted">
     <div class="container">
@@ -63,6 +215,7 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

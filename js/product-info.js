@@ -11,29 +11,41 @@ function showProductsInfo() {
     let prodImgsHTML = imagesProduct(); //Mostrar imagenes
 
     let htmlContentToAppend = `
-        <div class="row">
-
-            <hr>
-
-            <h4>Descripción</h4>
+    <div class="row p-4 mb-4">
+     <div class="col d-flex justify-content-around">
+         
             <p class="mb-1">${producto.description}</p>
-            
-            <h4>Costo</h4>
+              
             <p> ${producto.currency} ${producto.cost}</p>
             
-            <h4>Vendidos</h4>
             <p>${producto.soldCount}</p>
-            
-            <h4>Imagenes</h4>
-            <div class="contenedor_img">${prodImgsHTML}</div>
 
-            </hr>
-
-        </div>`
+            <button class="btn btn-secondary" type="button" onclick="location.href='cart.html'">Comprar</button>
+       </div>     
+    </div>
+       
+    <div>
+        <div class="contenedor_img">${prodImgsHTML}</div>
+    </div>`
 
     document.getElementById("product-info").innerHTML = htmlContentToAppend;
     
 }
+
+{/* Codigo anterior 
+<div class="row">
+
+<hr>
+
+<h4>Descripción</h4>
+<p class="mb-1">${producto.description}</p>
+
+<h4>Costo</h4>
+<p> ${producto.currency} ${producto.cost}</p>
+
+<h4>Vendidos</h4>
+<p>${producto.soldCount}</p> */}
+
 /*Fin*/
 
 /* Funcion para mostrar las imagenes*/
@@ -79,12 +91,15 @@ function Comment(id, user, dateTime, score, description){
     return `
         <div id="idComment_`+id+`" class="row comment">
             <div>
-                <h5>`+user+` - `+dateTime+`</h5>
+                <h6>`+user+` - `+dateTime+`</h6>
             </div>
             <div id="score">${scoreHTML}</div>
             
             <p>`+description+`</p>
-        </div>`;
+
+            <div>
+        </div>
+        `;
 }
 
 function commentProduct(){

@@ -13,42 +13,42 @@
   
   <style>
     body {
-      background-color: rgb(248, 249, 250);
+      background: #D3CCE3;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #E9E4F0, #cac7d1);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      /* background-color: rgb(248, 249, 250); */
     }
   </style>
 </head>
-
+<!-- Inicio del login -->
 <body>
+  
   <main class="mt-5">
-    <img class="img" src="img/login.png" alt="user-login"/> 
+  
+    <img class="img" src="img/login_transparent.png"/> 
 
-    <div id="form">
+    <h1 class="title-login">Inicio de sesión</h1>
 
-    <div class="formulario">
-
-      <h1 class="title-login">Inicio de sesión</h1>
+    <div id="form" class="formulario">
 
       <br>
 
       <div class="email">
-        <label for="email" class="log-name">Password</label>
         <input  type="text" id="email" placeholder="Email">
       </div>
 
       <br>
 
       <div class="password">
-        <label for="password" class="log-name">Password</label>
         <input  type="password" id="password" placeholder="Password">
       </div>
 
       <br>
 
       <button type="button" class="btn btn-primary btn-log" onclick="acceder()" value="Enviar" >Ingresar</button>
-
-    </div>
-    </div>
+  </div>
   </main>
+     <!-- fin -->
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">

@@ -190,11 +190,8 @@ a.custom-card:hover {
 }
 
 /*Estilo del login*/
-.form{
-  background-color: linear-gradient(to bottom right, blue, white);
-}
 
-.form, .log-name{
+.form{
   justify-content: center;
   display: flex;
   margin-bottom: 15px;
@@ -203,6 +200,7 @@ a.custom-card:hover {
  
  .btn-log{
   margin-left: 47%;
+  margin-top: 15px;
  }
  
  
@@ -223,20 +221,16 @@ a.custom-card:hover {
    display: block;
    margin: auto;
    margin-top: 10px;
-   border-radius: 0.5rem;
-   border: solid 0.1px;
+   border: none;
+   border-bottom: 1px solid rgb(7, 138, 155);
+   outline: 0 none;
+   background-color: transparent;
  }
-
- .formulario input:focus {
-  outline: 0 none;
-  border-color: rgb(0, 209, 236);
-  box-shadow: 0 1px 1px rgb(12, 133, 180)inset, 0 1px 8px rgb(0, 204, 255);
-}
-
  /*Fin*/
 
  /*Estilo de img del producto especifico*/
 .contenedor_img {
+  margin-left: 8rem;
   display: flex;
   width: 80%;
   gap: 2rem
@@ -269,6 +263,7 @@ a.custom-card:hover {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+ 
 }
 /*Fin*/
 
